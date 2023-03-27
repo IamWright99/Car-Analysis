@@ -1,12 +1,14 @@
 import pandas as pd
+from datetime import datetime
+from decimal import *
 
 def main():
 
     pd.options.display.max_rows = 160
     df = pd.read_csv('Car_sales.csv')
     print(df.head())
-    #1.) at immediate glance data is grouped by manufacturer, sales in thousands column has data is formatted differnt
-    # there is high probability ther is columns with NaN 
+    #1.) at immediate glance data is grouped by manufacturer(alphabetical order), sales in thousands column has data formatted differntly
+    # there is high probability there are columns with NaN 
     #the biggest issue I see is the NaN mainly because lack of data may be due to the car being disontinued or wasn't recorded
 
     columns = list(df.columns)
@@ -40,16 +42,20 @@ def main():
         df[column] = df[column].fillna("")
 
     rows = []
-    floatSales = ['Sales_in_thousands']
-    floatresale =['__year_resale_value']
     for i in range(len(df)):
-        if df[floatSales].iloc[i] == "":
+        if df['Sales_in_thousands'].iloc[i] == "":
             rows.append(i)
-        if df[floatresale].iloc[i] == "":
+        if df['__year_resale_value'].iloc[i] == "":
             rows.append(i)
-            
-
-
+        if df['Vehicle_type'].iloc[i] == "":
+            rows.append(i)
+        if df['Price_in_thousands'].iloc[i] == "":
+            rows.append(i)
+        if df['Engine_size'].iloc[i] == "":
+            rows.append(i)
+       
+        
+        
     # Examining rows to confirm null state of column
 
     df.loc[rows, :]
@@ -63,21 +69,31 @@ def main():
             MonthsExtracted.append(0)
             YearsExtracted.append(0)
         else:
-            date = df[DateExtract].iloc[i].split(" ")
+            date = df['Latest_Launch'].iloc[i].split("/")
             MonthsExtracted.append(date[0])
             YearsExtracted.append(int(date[2]))
 
     # turning month names into their month numbers
     for i, month in enumerate(MonthsExtracted):
         if month !=0:
-            Datetime = Datetime.strptime(month, "%B")
-            MonthNumber = Datetime.month
-            MonthAdded = MonthNumber
+            Datetime_obj = datetime.strptime(month, "%m")
+            MonthNumber = Datetime_obj.month
+            MonthsExtracted[i] = MonthNumber
 
     # check all months
-    print(set(MonthAdded))
+    print(set(MonthsExtracted))
     print(set(YearsExtracted))
+
+    df.insert(16,"Months_Added", MonthsExtracted, allow_duplicates= True)
+    df.insert(17,"Years_Added", YearsExtracted, allow_duplicates= True)
+    print(df.head())
+
+    # We have now created two knew columns that will be used later for further analysis
+
+    # Checking unique values
+
     
+
     
         
             
