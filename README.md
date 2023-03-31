@@ -1,4 +1,4 @@
-# data-cleaning
+# Car sales analysis
 # This is a dataset I found on kaggle on car sales from models (from many different manufactures) existing between 2011 and 2012.
 
 # The main point of my exploration is to do an analysis on what plays in to resale value of a car while also finding hidden variables that could play a part in a car's value 
