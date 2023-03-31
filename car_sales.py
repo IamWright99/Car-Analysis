@@ -35,7 +35,7 @@ def main():
 
     # 6.) fillinng in empty entries with an arbitrary value
 
-    tmpcolumns = ['Manufacturer', 'Model', 'Vehicle_type',  'Latest_Launch']
+    tmpcolumns = ['Manufacturer', 'Model', 'Vehicle_type',  'Latest_Launch', '__year_resale_value','Price_in_thousands','Engine_size','Horsepower','Wheelbase','Width','Length','Curb_weight','Fuel_capacity','Fuel_efficiency','Power_perf_factor']
     DateExtract = ['Latest_Launch']
 
     for column in tmpcolumns:
@@ -91,6 +91,9 @@ def main():
     # We have now created two knew columns that will be used later for further analysis
 
     # Checking unique values
+    # this is mainly to do a final check to make sure the values I expect to be in the column is there (empty cells will have '' because they used to be nan)
+
+    print(df['__year_resale_value'].unique())
 
     
 
