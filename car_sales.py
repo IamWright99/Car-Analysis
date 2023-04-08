@@ -94,6 +94,24 @@ def main():
     # this is mainly to do a final check to make sure the values I expect to be in the column is there (empty cells will have '' because they used to be nan)
 
     print(df['__year_resale_value'].unique())
+    print(df['Manufacturer'].unique())
+    print(df['Model'].unique())
+    print(df['Sales_in_thousands'].unique())
+    print(df['Vehicle_type'].unique())
+    print(df['Price_in_thousands'].unique())
+    print(df['Engine_size'].unique())
+    print(df['Horsepower'].unique())
+    print(df['Wheelbase'].unique())
+    print(df['Width'].unique())
+    print(df['Length'].unique())
+    print(df['Curb_weight'].unique())
+    print(df['Fuel_efficiency'].unique())
+    print(df['Fuel_capacity'].unique())
+    print(df['Latest_Launch'].unique())
+    print(df['Power_perf_factor'].unique())
+
+
+    
 
     
 
