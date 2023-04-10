@@ -1,6 +1,8 @@
 import pandas as pd
 from datetime import datetime
 from decimal import *
+import openpyxl
+
 
 def main():
 
@@ -109,6 +111,11 @@ def main():
     print(df['Fuel_capacity'].unique())
     print(df['Latest_Launch'].unique())
     print(df['Power_perf_factor'].unique())
+
+    #the data has no unexpected outliers or in the wrong place
+    # Writing to excel file for further analysis
+
+    df.to_excel("UsedCarDf.xlsx",sheet_name='UsedCarDF')
 
 
     
