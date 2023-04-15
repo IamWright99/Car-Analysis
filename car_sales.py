@@ -12,6 +12,7 @@ def main():
     #1.) at immediate glance data is grouped by manufacturer(alphabetical order), sales in thousands column has data formatted differntly
     # there is high probability there are columns with NaN 
     #the biggest issue I see is the NaN mainly because lack of data may be due to the car being disontinued or wasn't recorded
+    #cars that are considerd passengers are for cars such as sedans,
 
     columns = list(df.columns)
     print(columns)
@@ -115,7 +116,7 @@ def main():
     #the data has no unexpected outliers or in the wrong place
     # Writing to excel file for further analysis
 
-    df.to_excel("UsedCarDf.xlsx",sheet_name='UsedCarDF')
+    df.to_excel('UsedCarDf.xlsx',sheet_name='UsedCarDF')
 
 
     
