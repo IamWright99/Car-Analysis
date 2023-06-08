@@ -57,7 +57,33 @@ def main():
     print("BMW avg price: ", BMW_AVG)
     print(total_AVG_DF)
     # Question 3: Out of these 5 manufacturers, which manufacturer sold the most units?
-    # Question 4: Out of all Sedans, which has the highest resale value
+
+    Hondasold = HondaDf.Sales_in_thousands.sum()
+    Toyotasold = ToyotaDF.Sales_in_thousands.sum()
+    Nissansold = NissanDf.Sales_in_thousands.sum()
+    Mercedessold = MercedesDf.Sales_in_thousands.sum()
+    BMWsold = BMW_DF.Sales_in_thousands.sum()
+
+    Total_Sold = [Hondasold,Toyotasold,Nissansold,Mercedessold,BMWsold]
+    Total_Sold.sort()
+
+    print("Honda sold: ", Hondasold)
+    print("Toyota sold: ", Toyotasold)
+    print("Nissan sold: ", Nissansold)
+    print("Mercedes sold: ", Mercedessold)
+    print("BMW sold: ", BMWsold)
+    print(Total_Sold)
+
+
+    # Question 4: Out of all Sedans, which has the highest resale value? what about trucks?
+
+    Sedantmp = SedansDf[['Manufacturer','Model','Year_Resale_Value']][SedansDf['Year_Resale_Value'] == SedansDf['Year_Resale_Value'].max()]
+    print(Sedantmp)
+    
+    Trucktmp = TrucksDF[['Manufacturer','Model','Year_Resale_Value']][TrucksDF['Year_Resale_Value'] == TrucksDF['Year_Resale_Value'].max()]
+    print(Trucktmp)
+
+    # What is the peak month that the most cars were sold during 2011 and 2012?
 
 
 
