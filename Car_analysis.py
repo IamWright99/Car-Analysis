@@ -56,6 +56,7 @@ def main():
     print("Mercedes avg price: ", MercedesAVG)
     print("BMW avg price: ", BMW_AVG)
     print(total_AVG_DF)
+    
     # Question 3: Out of these 5 manufacturers, which manufacturer sold the most units?
 
     Hondasold = HondaDf.Sales_in_thousands.sum()
@@ -85,12 +86,9 @@ def main():
 
     # What is the peak month that the most cars were sold during 2011 and 2012?
 
-
-
-
-
-
-
+    tmpDF = SedansDf.Months_Added.value_counts()
+    print(tmpDF.index[0:2])
+     
 
 
 
