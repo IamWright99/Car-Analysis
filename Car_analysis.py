@@ -87,7 +87,7 @@ def main():
     # What is the peak month that the most cars were sold during 2011 and 2012?
 
     tmpDF = SedansDf.Months_Added.value_counts()
-    print(tmpDF.index[0:2])
+    print("Most cars sold in this month: ",tmpDF.index[0:2])
      
 
     #///////////////////////////////////////////////////////////////////////////////////
@@ -97,13 +97,66 @@ def main():
     plt.bar(x,y)
     plt.show()
 
+    columns = list(SedansDf.Months_Added)
+    Jan = 0
+    feb = 0
+    mar = 0
+    apr = 0
+    may = 0
+    jun = 0
+    jul = 0
+    aug = 0
+    sep = 0
+    oct = 0
+    nov = 0
+    dec = 0
+    for i  in columns:
+        if i == 1:
+            Jan += 1
+        if i == 2:
+            feb += 1
+        if i == 3:
+            mar += 1
+        if i == 4:
+            apr += 1
+        if i == 5:
+            may += 1
+        if i == 6:
+            jun += 1
+        if i == 7:
+            jul += 1
+        if i == 8:
+            aug += 1
+        if i == 9:
+            sep += 1
+        if i == 10:
+            oct += 1
+        if i == 11:
+            nov += 1
+        if i == 12:
+            dec += 1
+        
+    month_count = [Jan,feb,mar,apr,may,jun,jul,aug,sep,oct,nov,dec]
+    yy = month_count
+    xx = ["jan","feb","mar","apr","may","jun","jul","aug","sep","oct","nov","dec"]
+
+    plt.bar(xx,yy)
+    plt.savefig("fig.pdf")
+    plt.show()
+    
+
+            
     y2 = Total_Sold
     plt.bar(x,y2)
+    plt.savefig("fig2.pdf")
     plt.show()
+
+    SedansDf2= SedansDf[['Manufacturer','Model','Year_Resale_Value']][SedansDf['Year_Resale_Value'] >= 50.4]
+    print(SedansDf2)
 
     #///////////////////////////////////////////////////////////////////////////////////
 
-    
+
 
 
 
