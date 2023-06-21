@@ -1,5 +1,6 @@
 import pandas as pd
 import matplotlib.pyplot as plt
+import numpy as np 
 
 def main():
 
@@ -91,6 +92,7 @@ def main():
      
 
     #///////////////////////////////////////////////////////////////////////////////////
+    plt.style.use("seaborn-darkgrid")
 
     y = total_AVG_DF
     x = ["Honda","Toyota","Nissan","Mercedes","BMW"]
@@ -154,6 +156,20 @@ def main():
     SedansDf2= SedansDf[['Manufacturer','Model','Year_Resale_Value']][SedansDf['Year_Resale_Value'] >= 50.4]
     print(SedansDf2)
 
+    plt.figure(figsize = (10,10))
+    x_coords = list(ToyotaDF["Latest_Launch"])
+    y_coords = list(ToyotaDF["Sales_in_thousands"])
+    model = list(ToyotaDF['Model'])
+
+    for i,model in enumerate(model):
+        x = x_coords[i]
+        y = y_coords[i]
+        plt.scatter(x,y, marker='x', color='red')
+        plt.text(x, y+0.3, model, fontsize=9)
+        plt.savefig("fig3.pdf")
+        plt.xticks(np.arange(0,len(ToyotaDF),1), fontsize = 8)
+        plt.yticks(fontsize = 8)
+    plt.show()
     #///////////////////////////////////////////////////////////////////////////////////
 
 
